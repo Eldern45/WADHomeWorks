@@ -16,11 +16,15 @@
         </nav>
     </header>
     <main>
-        <form action="index.html" action="post">
-            <label for="post_body">Post body</label>
-            <textarea name="post_body"></textarea>
-            <label for="select_file">Select file</label>
-            <input type="file">
+        <form action="index.html" action="post" class="content-box">
+            <label>
+                Post body
+                <textarea id="post_body"></textarea>
+            </label>
+            <label>
+                Select file
+                <input type="file" id="select_file">
+            </label>
             <input type="submit" value="Create post">
         </form>
     </main>
