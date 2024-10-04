@@ -72,7 +72,7 @@ nav img {
     height: 25px;
 }
 
-div + img {
+.posts div + img {
     max-width: 60%;
     margin: auto;
 }
