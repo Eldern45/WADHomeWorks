@@ -135,3 +135,20 @@ form ~ p {
 form input {
     display: inline;
 }
+
+.dropdown {
+    background-color: #bababa;
+    border-radius: 3px;
+    padding: 10px;
+
+}
+
+.dropdown > p {
+    padding: 9px;
+    margin: 0;
+}
+
+.dropdown > p:hover {
+    background-color: aliceblue;
+    border-radius: 3px;
+}
