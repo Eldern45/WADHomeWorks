@@ -16,17 +16,14 @@
         </nav>
     </header>
     <main>
-        <form action="index.html" action="post" class="content-box">
-            <label>
-                Post body
-                <textarea id="post_body"></textarea>
-            </label>
-            <label>
-                Select file
+        <div class="content-box">
+            <h2>New post</h2>
+            <form id="addpost" action="index.html" action="post">
+                <textarea id="post_body" rows="8" cols="35"></textarea>
                 <input type="file" id="select_file">
-            </label>
-            <input type="submit" value="Create post">
-        </form>
+                <input type="submit" value="Create post">
+            </form>
+        </div>
     </main>
 </body>
 <script src="../js/dropdown.js"></script>

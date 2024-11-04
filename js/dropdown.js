@@ -24,6 +24,6 @@ profile.onclick = e => {
 document.body.appendChild(dropdown)
 dropdown.classList.add("dropdown")
 dropdown.style.visibility = "hidden"
-dropdown.style.position = "fixed"
+dropdown.style.position = "absolute"
 dropdown.style.right = "5px"
 dropdown.style.top = "76px"
