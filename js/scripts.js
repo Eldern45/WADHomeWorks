@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             postElement.innerHTML = `
                 <div class="data">
-                    <img src="../res/images/human-icon-symbol-design-illustration-vector.jpg" alt="user img">
+                    <img src="./res/images/human-icon-symbol-design-illustration-vector.jpg" alt="user img">
                     <p>${new Date(post.createTime).toLocaleString()}</p>
                 </div>
                 ${post.pictureUrl ? `<img src="${post.pictureUrl}" alt="Post image" class="post-image">` : ''}
