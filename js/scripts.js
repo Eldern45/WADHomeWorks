@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const postsContainer = document.getElementById('postsContainer');
     // const uri = 'https://timur0108.github.io/WADkodutooAPI/myjson.json';
-    const local = './res/json/myjson.json';
+    const local = './res/json/myjson.json'
     // fetch(uri)
     fetch(local)
     .then(response => {
