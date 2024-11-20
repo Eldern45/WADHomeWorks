@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <p>Test Post</p>
+    <p>Test PostPage</p>
 </template>
 
 <style scoped>

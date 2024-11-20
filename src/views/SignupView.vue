@@ -1,11 +1,11 @@
 <script>
-    export default {
-        name: 'SignupView'
-    }
+export default {
+    name: 'SignupView'
+}
 </script>
 
 <template>
-    <p>Test Sign</p>
+    <p>Test SignupPage</p>
 </template>
 
 <style scoped>

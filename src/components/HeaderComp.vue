@@ -1,18 +1,41 @@
 <script>
-    export default {
-        name: 'Navigation-bar'
-    }
+export default {
+    name: 'Navigation-bar'
+}
 </script>
 
 <template>
     <header class="header">
         <nav>
-            <router-link to="/">Posts</router-link>
-            <router-link to="/signup">Signup</router-link>
+            <router-link to="/" class="buttons">Posts</router-link>
+            <router-link to="/signup" class="buttons">Signup</router-link>
         </nav>
     </header>
 </template>
 
-<style>
+<style scoped>
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    overflow: hidden;
+    border-radius: 15px;
+    margin: 3px;
+    height: 70px;
+    font-size: 25px;
+}
 
+.buttons {
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.buttons:hover {
+    background-color: #ddd;
+    color: black;
+    border-radius: 15px;
+}
 </style>
