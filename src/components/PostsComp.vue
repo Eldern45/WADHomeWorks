@@ -6,13 +6,16 @@ export default {
     postList() {
       return this.$store.state.posts
     }
+  },
+  methods: {
+    
   }
 }
 </script>
 
 <template>
   <div class="posts">
-    <div v-for="post in postList">
+    <div v-for="(post, index) in postList">
       <div class="data">
         <span>
           <img src="../../res/human-icon-symbol-design-illustration-vector.jpg" alt="user img">
@@ -22,6 +25,7 @@ export default {
       </div>
       <img v-if="post.pictureUrl != null" :src="post.pictureUrl" alt="Post image">
       <p>{{ post.text }}</p>
+      <button @click="this.$store.dispatch(increaseLikes, index)">like</button> <p>{{post.likes}}</p>
     </div>
   </div>
 </template>

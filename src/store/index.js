@@ -84,7 +84,7 @@ export default createStore({
         setLikes(state, amount) {
             state.posts.forEach(e => e.likes = amount)
         },
-        increaseLikes(state, amount, index) {
+        increaseLikes(state, index) {
             state.posts[index].likes += 1
         }
     },
@@ -93,6 +93,9 @@ export default createStore({
             context.commit("addPosts", posts)
         },
         initStore(context, url) {
+        },
+        increaseLikes(context, index) {
+            context.commit("increaseLikes", index)
         }
     },
     modules: {}
