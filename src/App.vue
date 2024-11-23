@@ -1,8 +1,9 @@
 <template>
-    <div id="app">
+    <div id="header">
         <HeaderComp/>
     </div>
     <main>
+        <button @click="this.$store.dispatch('resetLikes')">Reset Likes</button>
         <router-view/>
     </main>
     <footer>
@@ -34,12 +35,24 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: 100%;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: scroll;
+    margin-top: 75px;
+    height: 80%;
 }
+
+#header {
+  height: 10%;
+}
+
+footer {
+  height: 10%;
+}
+
 </style>

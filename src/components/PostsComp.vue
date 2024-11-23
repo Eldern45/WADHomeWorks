@@ -25,7 +25,7 @@ export default {
       </div>
       <img v-if="post.pictureUrl != null" :src="post.pictureUrl" alt="Post image">
       <p>{{ post.text }}</p>
-      <button @click="this.$store.dispatch('increaseLikes', index)">like</button> <p>{{post.likes}}</p>
+      <span><button @click="this.$store.dispatch('increaseLikes', index)">like</button> <p>{{post.likes}}</p></span>
     </div>
   </div>
 </template>

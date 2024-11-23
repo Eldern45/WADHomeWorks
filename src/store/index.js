@@ -106,6 +106,9 @@ export default createStore({
         },
         increaseLikes(context, index) {
             context.commit("increaseLikes", index)
+        },
+        resetLikes(context) {
+            context.commit("setLikes", 0)
         }
     },
     modules: {}

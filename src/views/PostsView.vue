@@ -8,7 +8,6 @@ export default {
 </script>
 
 <template>
-    <p>Test PostPage</p>
     <Posts/>
 </template>
 

@@ -15,6 +15,7 @@ export default {
 
 <style scoped>
 nav {
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,6 +25,7 @@ nav {
     margin: 3px;
     height: 70px;
     font-size: 25px;
+    width: 100%;
 }
 
 .buttons {
