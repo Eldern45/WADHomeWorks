@@ -1,14 +1,9 @@
 <template>
-    <div id="header">
+    <div class="body">
         <HeaderComp/>
-    </div>
-    <main>
-        <button @click="this.$store.dispatch('resetLikes')">Reset Likes</button>
         <router-view/>
-    </main>
-    <footer>
         <FooterComp/>
-    </footer>
+    </div>
 </template>
 <script>
 import HeaderComp from '@/components/HeaderComp.vue'
@@ -36,23 +31,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: scroll;
-    margin-top: 75px;
-    height: 80%;
-}
-
-#header {
-  height: 10%;
-}
-
-footer {
-  height: 10%;
 }
 
 </style>

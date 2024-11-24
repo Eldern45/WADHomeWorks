@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
     <p class="footer">Footer</p>
 </template>
@@ -11,12 +7,8 @@
     background-color: #333;
     color: white;
     text-align: center;
-    margin: auto;
+    margin: auto 3px 3px 3px;
+    border-radius: 15px;
     padding: 25px;
-    font-size: 25px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
 }
 </style>

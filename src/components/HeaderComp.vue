@@ -15,17 +15,15 @@ export default {
 
 <style scoped>
 nav {
-    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #333;
     overflow: hidden;
     border-radius: 15px;
-    margin: 3px;
     height: 70px;
     font-size: 25px;
-    width: 100%;
+    margin: 3px;
 }
 
 .buttons {
