@@ -50,26 +50,28 @@ export default {
 </script>
 
 <template>
+    <div class="page-container">
     <form @submit.prevent="submitForm" class="signup-form">
-        <div class="form-row">
-            <label for="email">Email:</label>
-            <input type="email" id="email" v-model="email" />
-        </div>
+      <div class="form-row">
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email" />
+      </div>
 
-        <div class="form-row">
-            <label for="password">Password:</label>
-            <input type="password" id="password" v-model="password" />
-        </div>
+      <div class="form-row">
+        <label for="password">Password:</label>
+        <input type="password" id="password" v-model="password" />
+      </div>
 
-        <div v-if="passwordError" class="password-error">
-            <p>The password is not valid:</p>
-            <ul>
-                <li v-for="(condition, index) in passwordErrors" :key="index">{{ condition }}</li>
-            </ul>
-        </div>
+      <div v-if="passwordError" class="password-error">
+        <p>The password is not valid:</p>
+        <ul>
+          <li v-for="(condition, index) in passwordErrors" :key="index">{{ condition }}</li>
+        </ul>
+      </div>
 
-        <button type="submit">Sign Up</button>
-  </form>
+      <button type="submit">Sign Up</button>
+    </form>
+</div>
 </template>
 
 <style scoped>
@@ -82,6 +84,12 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
 
 .form-row {
   display: flex;
@@ -90,13 +98,13 @@ export default {
 }
 
 label {
-  width: 100px; /* You can adjust the width of the label */
-  margin-right: 10px; /* Space between label and input */
+  width: 100px; 
+  margin-right: 10px; 
   font-weight: bold;
 }
 
 input {
-  flex: 1; /* Makes the input take the remaining space in the row */
+  flex: 1; 
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;

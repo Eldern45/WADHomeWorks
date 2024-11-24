@@ -25,7 +25,17 @@ export default {
       </div>
       <img v-if="post.pictureUrl != null" :src="post.pictureUrl" alt="Post image" class="post-img" />
       <p>{{ post.text }}</p>
-      <span><button @click="this.$store.dispatch('increaseLikes', index)">like</button> {{ post.likes }} </span>
+      <span>
+        <img
+          src="../../res/like-button.png"  
+          alt="like-button"
+          class="like-button"
+          @click="this.$store.dispatch('increaseLikes', index)"
+        >
+        {{ post.likes }}
+
+   
+      </span>
     </div>
   </div>
 </template>
@@ -33,6 +43,13 @@ export default {
 <style scoped>
 .posts {
   margin-top: 20px;
+}
+
+.like-button {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-right: 8px;
 }
 
 .posts > div {
