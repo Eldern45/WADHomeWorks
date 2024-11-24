@@ -28,16 +28,16 @@
 }
 
 .authors {
-    margin-top: 15px; 
+    margin-top: 15px;
 }
 
 .authors ul {
-    list-style-type: none; 
-    padding: 0; 
+    list-style-type: none;
+    padding: 0;
     margin: 0;
 }
 
 .authors li {
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
 </style>

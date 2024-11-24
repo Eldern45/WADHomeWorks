@@ -1,55 +1,58 @@
 <script>
 export default {
-  name: "Posts",
-  props: {},
-  computed: {
-    postList() {
-      return this.$store.state.posts
-    }
-  },
-  methods: {
-    
-  }
+    name: "Posts",
+    props: {},
+    computed: {
+        postList() {
+            return this.$store.state.posts
+        }
+    },
+    methods: {}
 }
 </script>
 
 <template>
-  <div class="posts">
-    <div v-for="(post, index) in postList">
-      <div class="data">
+    <div class="posts">
+        <div v-for="(post, index) in postList">
+            <div class="data">
         <span>
-          <img src="../../res/human-icon-symbol-design-illustration-vector.jpg" alt="user img" class="user-img" />
-          {{post.authorName}}
+          <img src="../../res/human-icon-symbol-design-illustration-vector.jpg" alt="user img" class="user-img"/>
+          {{ post.authorName }}
         </span>
-        <p>{{ post.createTime.toLocaleString() }}</p>
-      </div>
-      <img v-if="post.pictureUrl != null" :src="post.pictureUrl" alt="Post image" class="post-img" />
-      <p>{{ post.text }}</p>
-      <span>
+                <p>{{ post.createTime.toLocaleString() }}</p>
+            </div>
+            <img v-if="post.pictureUrl != null" :src="post.pictureUrl" alt="Post image" class="post-img"/>
+            <p>{{ post.text }}</p>
+            <span>
         <img
-          src="../../res/like-button.png"  
-          alt="like-button"
-          class="like-button"
-          @click="this.$store.dispatch('increaseLikes', index)"
+                src="../../res/like-button.png"
+                alt="like-button"
+                class="like-button"
+                @click="this.$store.dispatch('increaseLikes', index)"
         >
         {{ post.likes }}
 
    
       </span>
+        </div>
     </div>
-  </div>
 </template>
 
 <style scoped>
 .posts {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .like-button {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.like-button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
 }
 
 .posts > div {
@@ -63,9 +66,9 @@ export default {
 }
 
 .data {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .post-img {
@@ -75,6 +78,6 @@ export default {
 }
 
 .user-img {
-  height: 25px;
+    height: 25px;
 }
 </style>

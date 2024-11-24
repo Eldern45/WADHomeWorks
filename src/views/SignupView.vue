@@ -51,77 +51,77 @@ export default {
 
 <template>
     <div class="page-container">
-    <form @submit.prevent="submitForm" class="signup-form">
-      <div class="form-row">
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" />
-      </div>
+        <form @submit.prevent="submitForm" class="signup-form">
+            <div class="form-row">
+                <label for="email">Email:</label>
+                <input type="email" id="email" v-model="email"/>
+            </div>
 
-      <div class="form-row">
-        <label for="password">Password:</label>
-        <input type="password" id="password" v-model="password" />
-      </div>
+            <div class="form-row">
+                <label for="password">Password:</label>
+                <input type="password" id="password" v-model="password"/>
+            </div>
 
-      <div v-if="passwordError" class="password-error">
-        <p>The password is not valid:</p>
-        <ul>
-          <li v-for="(condition, index) in passwordErrors" :key="index">{{ condition }}</li>
-        </ul>
-      </div>
+            <div v-if="passwordError" class="password-error">
+                <p>The password is not valid:</p>
+                <ul>
+                    <li v-for="(condition, index) in passwordErrors" :key="index">{{ condition }}</li>
+                </ul>
+            </div>
 
-      <button type="submit">Sign Up</button>
-    </form>
-</div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
 </template>
 
 <style scoped>
-    .signup-form {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #F3F7E1;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.signup-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #F3F7E1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 
 .form-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 label {
-  width: 100px; 
-  margin-right: 10px; 
-  font-weight: bold;
+    width: 100px;
+    margin-right: 10px;
+    font-weight: bold;
 }
 
 input {
-  flex: 1; 
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 button {
-  width: 100%;
-  padding: 10px;
-  background-color: blue;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 button:hover {
-  background-color: darkblue;
+    background-color: darkblue;
 }
 </style>

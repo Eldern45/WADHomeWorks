@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import PostsView from '@/views/PostsView.vue'
 import SignupView from '@/views/SignupView.vue'
 
