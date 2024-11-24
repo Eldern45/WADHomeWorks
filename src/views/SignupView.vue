@@ -9,9 +9,6 @@ export default {
         };
     },
     computed: {
-        isFormValid() {
-            return this.passwordErrors.length === 0;
-        },
         passwordError() {
             return this.passwordErrors.length > 0;
         }
@@ -27,12 +24,20 @@ export default {
         },
         validatePassword(password) {
             this.passwordErrors = [];
-            if (password.length < 8 || password.length > 15) {
-                this.passwordErrors.push('Password should be between 8 and 15 characters.');
+            if (password.length < 8 || password.length > 14) {
+                this.passwordErrors.push('Password should be at least 8 characters and less than 15 characters.');
+            }
+
+            if (!/^[A-Z]/.test(password)) {
+                this.passwordErrors.push('Password should should start with an uppercase alphabet.');
             }
 
             if (!/[A-Z]/.test(password)) {
-                this.passwordErrors.push('Password should include at least one alphabetic character.');
+                this.passwordErrors.push('Password should include at least one uppercase alphabet character.');
+            }
+
+            if (!/(.*[a-z]){2,}/.test(password)) {
+                this.passwordErrors.push('Password should include at least two lowercase alphabet characters.');
             }
 
             if (!/[0-9]/.test(password)) {
