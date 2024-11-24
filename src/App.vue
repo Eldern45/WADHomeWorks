@@ -1,9 +1,7 @@
 <template>
-    <div class="body">
-        <HeaderComp/>
-        <router-view/>
-        <FooterComp/>
-    </div>
+    <HeaderComp/>
+    <router-view/>
+    <FooterComp/>
 </template>
 <script>
 import HeaderComp from '@/components/HeaderComp.vue'
@@ -14,10 +12,11 @@ export default {
     components: {
         HeaderComp,
         FooterComp
+    },
+    mounted() {
+        document.title = "Homework 3";
     }
 }
-
-
 </script>
 <style>
 html {
@@ -32,5 +31,4 @@ body {
     flex-direction: column;
     height: 100%;
 }
-
 </style>
