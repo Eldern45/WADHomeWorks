@@ -10,6 +10,7 @@ export default createStore({
     mutations: {
         addPosts(state, posts) {
             console.log(posts)
+            posts.forEach(e => e.likes = 0)
             state.posts = state.posts.concat(posts)
         },
         setLikes(state, amount) {
