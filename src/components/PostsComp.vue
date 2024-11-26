@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: "Posts",
+    name: 'PostsComp',
     props: {},
     computed: {
         postList() {
@@ -12,25 +12,40 @@ export default {
 </script>
 
 <template>
-    <div class="posts">
-        <div v-for="(post, index) in postList">
-            <div class="data">
-                <span>
-                  <img src="../assets/human-icon-symbol-design-illustration-vector.jpg" alt="user img"
-                       class="user-img"/>
-                  <p>{{ post.authorName }}</p>
-                </span>
-                <p>{{ new Date(post.createTime).toLocaleString() }} </p>
-            </div>
-            <img v-if="post.pictureUrl != null" :src="post.pictureUrl" alt="Post image" class="post-img"/>
-            <p>{{ post.text }}</p>
-            <span class="like-container">
-                <img src="../assets/like-button.png" alt="like-button" class="like-button"
-                     @click="this.$store.dispatch('increaseLikes', index)">
-                {{ post.likes + " likes"}}
-            </span>
-        </div>
+  <div class="posts">
+    <div
+      v-for="(post, index) in postList"
+      :key="post.id"
+    >
+      <div class="data">
+        <span>
+          <img
+            src="../assets/human-icon-symbol-design-illustration-vector.jpg"
+            alt="user img"
+            class="user-img"
+          >
+          {{ post.authorName }}
+        </span>
+        <p>{{ new Date(post.createTime).toLocaleString() }} </p>
+      </div>
+      <img
+        v-if="post.pictureUrl != null"
+        :src="post.pictureUrl"
+        alt="Post image"
+        class="post-img"
+      >
+      <p>{{ post.text }}</p>
+      <span class="like-container">
+        <img
+          src="../assets/like-button.png"
+          alt="like-button"
+          class="like-button"
+          @click="$store.dispatch('increaseLikes', index)"
+        >
+        {{ post.likes + " likes" }}
+      </span>
     </div>
+  </div>
 </template>
 
 <style scoped>

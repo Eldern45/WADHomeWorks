@@ -1,7 +1,7 @@
 <template>
-    <HeaderComp/>
-    <router-view/>
-    <FooterComp/>
+  <HeaderComp />
+  <router-view />
+  <FooterComp />
 </template>
 <script>
 import HeaderComp from '@/components/HeaderComp.vue'

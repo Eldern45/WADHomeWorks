@@ -8,10 +8,12 @@ export default {
 </script>
 
 <template>
-    <div class="main">
-        <Posts/>
-        <button @click="this.$store.dispatch('resetLikes')">Reset Likes</button>
-    </div>
+  <div class="main">
+    <Posts />
+    <button @click="$store.dispatch('resetLikes')">
+      Reset Likes
+    </button>
+  </div>
 </template>
 
 <style scoped>
