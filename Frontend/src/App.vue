@@ -1,7 +1,11 @@
 <template>
-  <HeaderComp />
-  <router-view />
-  <FooterComp />
+  <div id="app">
+    <HeaderComp />
+    <main id="main">
+      <router-view />
+    </main>
+    <FooterComp />
+  </div>
 </template>
 <script>
 import HeaderComp from '@/components/HeaderComp.vue'
@@ -19,8 +23,14 @@ export default {
 }
 </script>
 <style>
-html {
-    height: 100%;
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#main {
+    flex: 1;
 }
 
 body {
@@ -31,4 +41,5 @@ body {
     flex-direction: column;
     height: 100%;
 }
+
 </style>

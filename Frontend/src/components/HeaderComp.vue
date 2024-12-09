@@ -1,26 +1,16 @@
 <script>
 export default {
-    name: 'HeaderComp',
+    name: 'Navigation-bar'
 }
 </script>
 
 <template>
-  <header class="header">
-    <nav>
-      <router-link
-        to="/"
-        class="buttons"
-      >
-        Posts
-      </router-link>
-      <router-link
-        to="/signup"
-        class="buttons"
-      >
-        Signup
-      </router-link>
-    </nav>
-  </header>
+    <header class="header">
+        <nav>
+            <router-link to="/posts" class="buttons">Posts</router-link>
+            <router-link to="/signup" class="buttons">Signup</router-link>
+        </nav>
+    </header>
 </template>
 
 <style scoped>

@@ -5,16 +5,16 @@ export default {
 </script>
 
 <template>
-  <footer class="footer">
-    <div class="authors">
-      <p>Authors:</p>
-      <ul>
-        <li>Johan Veenpere</li>
-        <li>Timofei Šinšakov</li>
-        <li>Timur Sirazitdinov</li>
-      </ul>
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="authors">
+            <p>Authors:</p>
+            <ul>
+                <li>Johan Veenpere</li>
+                <li>Timofei Šinšakov</li>
+                <li>Timur Sirazitdinov</li>
+            </ul>
+        </div>
+    </footer>
 </template>
 
 <style scoped>
@@ -26,7 +26,7 @@ export default {
     padding: 10px;
     font-size: 10px;
     line-height: 1.0;
-
+    width: 100%;
 }
 
 .authors {
