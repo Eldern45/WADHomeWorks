@@ -1,12 +1,3 @@
-<template>
-  <div id="app">
-    <HeaderComp />
-    <main id="main">
-      <router-view />
-    </main>
-    <FooterComp />
-  </div>
-</template>
 <script>
 import HeaderComp from '@/components/HeaderComp.vue'
 import FooterComp from '@/components/FooterComp.vue'
@@ -22,6 +13,17 @@ export default {
     }
 }
 </script>
+
+<template>
+  <div id="app">
+    <HeaderComp />
+    <main id="main">
+      <router-view />
+    </main>
+    <FooterComp />
+  </div>
+</template>
+
 <style>
 #app {
     display: flex;

@@ -1,41 +1,3 @@
-<template>
-  <div class="add-post-view">
-    <div class="form-container">
-      <h2>Add a Post</h2>
-
-      <div class="form-group">
-        <label for="body">Body</label>
-        <input
-            type="text"
-            id="body"
-            required
-            v-model="post.body"
-            placeholder="Enter post body"
-        />
-      </div>
-
-      <div v-if="isBodyEmpty" class="error-message">
-        Body cannot be empty
-      </div>
-
-      <div class="form-group">
-        <label for="postauthor">Author</label>
-        <input
-            type="text"
-            id="postauthor"
-            required
-            v-model="post.postauthor"
-            placeholder="Enter author name"
-        />
-      </div>
-
-      <div class="button-group">
-        <button @click="addPost" class="btn add-post">Add Post</button>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 export default {
     name: "AddPost",
@@ -45,7 +7,7 @@ export default {
                 id: "",
                 body: "",
                 posttime: "",
-                postauthor: ""
+                username: ""
             },
             isBodyEmpty: false
         };
@@ -60,10 +22,9 @@ export default {
             }
             let data = {
                 body: this.post.body,
-                postauthor: this.post.postauthor,
+                username: this.post.username,
                 posttime: new Date(),
             };
-            // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
             fetch("http://localhost:3000/api/posts", {
                 method: "POST",
                 headers: {
@@ -84,6 +45,52 @@ export default {
     },
 };
 </script>
+
+<template>
+  <div class="add-post-view">
+    <div class="form-container">
+      <h2>Add a Post</h2>
+
+      <div class="form-group">
+        <label for="body">Body</label>
+        <input
+          id="body"
+          v-model="post.body"
+          type="text"
+          required
+          placeholder="Enter post body"
+        >
+      </div>
+
+      <div
+        v-if="isBodyEmpty"
+        class="error-message"
+      >
+        Body cannot be empty
+      </div>
+
+      <div class="form-group">
+        <label for="username">Author</label>
+        <input
+          id="username"
+          v-model="post.username"
+          type="text"
+          required
+          placeholder="Enter author name"
+        >
+      </div>
+
+      <div class="button-group">
+        <button
+          class="btn add-post"
+          @click="addPost"
+        >
+          Add Post
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .add-post-view {

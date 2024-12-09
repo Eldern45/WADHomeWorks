@@ -16,8 +16,8 @@ const routes = [
         component: SignupView
     },
     {
-        path: "/apost/:id",
-        name: "APost",
+        path: '/apost/:id',
+        name: 'APost',
         component: ApostView,
     },
     {

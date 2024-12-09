@@ -7,14 +7,16 @@ export default {
                 id: "",
                 body: "",
                 posttime: "",
-                postauthor: ""
+                username: ""
             },
             isBodyEmpty: false,
         };
     },
+    mounted() {
+        this.fetchAPost(this.$route.params.id);
+    },
     methods: {
         fetchAPost(id) {
-            // fetch one post with the specied id (id)
             fetch(`http://localhost:3000/api/posts/${id}`)
                 .then((response) => response.json())
                 .then((data) => (this.post = data))
@@ -28,7 +30,7 @@ export default {
                 this.isBodyEmpty = false;
             }
             this.post.posttime = new Date();
-            // using Fetch - put method - updates a specific post based on the passed id and the specified body
+
             fetch(`http://localhost:3000/api/posts/${this.post.id}`, {
                 method: "PUT",
                 headers: {
@@ -38,8 +40,6 @@ export default {
             })
                 .then((response) => {
                     console.log(response.data);
-                    //this.$router.push("/apost/" + this.post.id);
-                    // We are using the router instance of this element to navigate to a different URL location
                     this.$router.push("/posts");
                 })
                 .catch((e) => {
@@ -47,27 +47,18 @@ export default {
                 });
         },
         deletePost() {
-            // using Fetch - delete method - delets a specific post based on the passed id
             fetch(`http://localhost:3000/api/posts/${this.post.id}`, {
                 method: "DELETE",
                 headers: {"Content-Type": "application/json"},
             })
                 .then((response) => {
                     console.log(response.data);
-                    // We are using the router instance of this element to navigate to a different URL location
                     this.$router.push("/posts");
                 })
                 .catch((e) => {
                     console.log(e);
                 });
         },
-    },
-    mounted() {
-        // call fetchAPost() when this element mounts, and pass to it a route parameter  (id)
-        // Route parameters (this.$route.params.id) are named URL segments that are used to capture the values specified at their
-        // position in the URL. The captured values are populated in the req.params object, with the name
-        // of the route parameter specified in the path as their respective keys
-        this.fetchAPost(this.$route.params.id);
     },
 }
 </script>
@@ -80,30 +71,43 @@ export default {
       <div class="form-group">
         <label for="body">Body</label>
         <input
-            type="text"
-            id="body"
-            required
-            v-model="post.body"
-        />
+          id="body"
+          v-model="post.body"
+          type="text"
+          required
+        >
       </div>
 
-      <div v-if="isBodyEmpty" class="error-message">
+      <div
+        v-if="isBodyEmpty"
+        class="error-message"
+      >
         Body cannot be empty
       </div>
 
       <div class="form-group">
         <label for="author">Author</label>
         <input
-            type="text"
-            id="author"
-            required
-            v-model="post.postauthor"
-        />
+          id="author"
+          v-model="post.username"
+          type="text"
+          required
+        >
       </div>
 
       <div class="buttons">
-        <button @click="updatePost" class="update-post">Update</button>
-        <button @click="deletePost" class="delete-post">Delete</button>
+        <button
+          class="update-post"
+          @click="updatePost"
+        >
+          Update
+        </button>
+        <button
+          class="delete-post"
+          @click="deletePost"
+        >
+          Delete
+        </button>
       </div>
     </div>
   </div>

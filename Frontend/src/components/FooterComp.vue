@@ -5,16 +5,16 @@ export default {
 </script>
 
 <template>
-    <footer class="footer">
-        <div class="authors">
-            <p>Authors:</p>
-            <ul>
-                <li>Johan Veenpere</li>
-                <li>Timofei Šinšakov</li>
-                <li>Timur Sirazitdinov</li>
-            </ul>
-        </div>
-    </footer>
+  <footer class="footer">
+    <div class="authors">
+      <p>Authors:</p>
+      <ul>
+        <li>Johan Veenpere</li>
+        <li>Timofei Šinšakov</li>
+        <li>Timur Sirazitdinov</li>
+      </ul>
+    </div>
+  </footer>
 </template>
 
 <style scoped>

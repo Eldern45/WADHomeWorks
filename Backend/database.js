@@ -29,7 +29,7 @@ const createTblQuery = `
         id SERIAL PRIMARY KEY,
         body VARCHAR NOT NULL,
         posttime TIMESTAMP NOT NULL,
-        postauthor VARCHAR
+        username VARCHAR
     );`;
 
 execute(createTblQuery).then(result => {

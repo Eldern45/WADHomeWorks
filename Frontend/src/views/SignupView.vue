@@ -50,33 +50,52 @@ export default {
         }
     }
 };
-
-
 </script>
 
 <template>
-    <div class="page-container">
-        <form @submit.prevent="submitForm" class="signup-form">
-            <div class="form-row">
-                <label for="email">Email:</label>
-                <input type="email" id="email" v-model="email"/>
-            </div>
+  <div class="page-container">
+    <form
+      class="signup-form"
+      @submit.prevent="submitForm"
+    >
+      <div class="form-row">
+        <label for="email">Email:</label>
+        <input
+          id="email"
+          v-model="email"
+          type="email"
+        >
+      </div>
 
-            <div class="form-row">
-                <label for="password">Password:</label>
-                <input type="password" id="password" v-model="password"/>
-            </div>
+      <div class="form-row">
+        <label for="password">Password:</label>
+        <input
+          id="password"
+          v-model="password"
+          type="password"
+        >
+      </div>
 
-            <div v-if="passwordError" class="password-error">
-                <p>The password is not valid:</p>
-                <ul>
-                    <li v-for="(condition, index) in passwordErrors" :key="index">{{ condition }}</li>
-                </ul>
-            </div>
+      <div
+        v-if="passwordError"
+        class="password-error"
+      >
+        <p>The password is not valid:</p>
+        <ul>
+          <li
+            v-for="(condition, index) in passwordErrors"
+            :key="index"
+          >
+            {{ condition }}
+          </li>
+        </ul>
+      </div>
 
-            <button type="submit">Sign Up</button>
-        </form>
-    </div>
+      <button type="submit">
+        Sign Up
+      </button>
+    </form>
+  </div>
 </template>
 
 <style scoped>

@@ -1,22 +1,23 @@
 <script>
 export default {
-    name: "Posts",
+    name: "PostsView",
     data() {
         return {
             posts: [],
         };
     },
+    mounted() {
+        this.fetchPosts();
+        console.log("mounted");
+    },
     methods: {
         fetchPosts() {
-            // You should remember how Fetch API works
-            // fetch is a GET request unless stated otherwise. Therefore, it will fetch all posts from the database
             fetch(`http://localhost:3000/api/posts/`)
                 .then((response) => response.json())
                 .then((data) => (this.posts = data))
                 .catch((err) => console.log(err.message));
         },
         deleteAllPosts() {
-            // using Fetch - delete method - delets a specific post based on the passed id
             fetch(`http://localhost:3000/api/posts`, {
                 method: "DELETE",
                 headers: {"Content-Type": "application/json"},
@@ -34,26 +35,27 @@ export default {
                 });
         },
     },
-    mounted() {
-        // call fetchPosts() when this element (AllPosts) mounts
-        this.fetchPosts();
-        console.log("mounted");
-    },
 };
 </script>
 
 <template>
   <div class="posts">
-    <div v-for="post in posts" :key="post.id">
-      <a class="post" :href="'/apost/' + post.id">
+    <div
+      v-for="post in posts"
+      :key="post.id"
+    >
+      <a
+        class="post"
+        :href="'/apost/' + post.id"
+      >
         <div class="data">
           <span>
             <img
-                src="../assets/human-icon-symbol-design-illustration-vector.jpg"
-                alt="user img"
-                class="user-img"
+              src="../assets/human-icon-symbol-design-illustration-vector.jpg"
+              alt="user img"
+              class="user-img"
             >
-            {{ post.postauthor }}
+            {{ post.username }}
           </span>
           <p>{{ new Date(post.posttime).toLocaleString() }} </p>
         </div>
@@ -62,8 +64,18 @@ export default {
     </div>
   </div>
   <div class="action-buttons">
-    <router-link to="/addpost" class="btn add-post">Add Post</router-link>
-    <button @click="deleteAllPosts" class="btn delete-all">Delete All</button>
+    <router-link
+      to="/addpost"
+      class="btn add-post"
+    >
+      Add Post
+    </router-link>
+    <button
+      class="btn delete-all"
+      @click="deleteAllPosts"
+    >
+      Delete All
+    </button>
   </div>
 </template>
 
