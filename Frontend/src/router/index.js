@@ -39,11 +39,37 @@ const routes = [
         path: '/apost/:id',
         name: 'APost',
         component: ApostView,
+        beforeEnter: async(to, from, next) => {
+            try {
+                const authResult = await auth.authenticated();
+                if (!authResult) {
+                    next('/login');
+                } else {
+                    next();
+                }
+            } catch (error) {
+                console.error("Authentication check failed", error);
+                next('/signup');
+            }
+        }
     },
     {
         path: '/addpost',
         name: 'AddPost',
-        component: AddPost
+        component: AddPost,
+        beforeEnter: async(to, from, next) => {
+            try {
+                const authResult = await auth.authenticated();
+                if (!authResult) {
+                    next('/login');
+                } else {
+                    next();
+                }
+            } catch (error) {
+                console.error("Authentication check failed", error);
+                next('/signup');
+            }
+        }
     },
     
      ]
