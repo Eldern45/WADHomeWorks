@@ -3,17 +3,37 @@ import PostsView from '@/views/PostsView.vue'
 import SignupView from '@/views/SignupView.vue'
 import ApostView from "@/views/ApostView.vue";
 import AddPost from "@/views/AddPost.vue";
+import LoginView from "@/views/Login.vue";
+import auth from "../auth";
 
 const routes = [
     {
         path: '/posts',
         name: 'Posts',
-        component: PostsView
+        component: PostsView,
+        beforeEnter: async(to, from, next) => {
+            try {
+                const authResult = await auth.authenticated(); 
+                if (!authResult) {
+                  next('/login');  
+                } else {
+                  next();  
+                }
+              } catch (error) {
+                console.error("Authentication check failed", error);
+                next('/signup');  
+              }
+        }
     },
     {
         path: '/signup',
         name: 'Signup',
         component: SignupView
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: LoginView
     },
     {
         path: '/apost/:id',
@@ -25,11 +45,7 @@ const routes = [
         name: 'AddPost',
         component: AddPost
     },
-    {
-        path: '/:catchAll(.*)',
-        name: 'Posts',
-        component: PostsView
-    }
+    
      ]
 
 const router = createRouter({

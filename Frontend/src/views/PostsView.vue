@@ -1,11 +1,14 @@
 <script>
+import auth from "../auth";
 export default {
     name: "PostsView",
     data() {
         return {
             posts: [],
+            authResult: auth.authenticated()
         };
     },
+    
     mounted() {
         this.fetchPosts();
         console.log("mounted");
@@ -34,12 +37,34 @@ export default {
                     console.log(e);
                 });
         },
+        Logout() {
+          fetch("http://localhost:3000/auth/logout", {
+          credentials: 'include', 
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log('jwt removed');
+        this.$router.push("/login");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error logout");
+      });
+    }
     },
 };
 </script>
 
 <template>
   <div class="posts">
+    <div class="logout-button">
+    <button @click="Logout"
+      class="btn logout"
+    >
+      Logout
+    </button>
+  </div>
     <div
       v-for="post in posts"
       :key="post.id"
@@ -77,10 +102,22 @@ export default {
       Delete All
     </button>
   </div>
+
 </template>
 
 
 <style scoped>
+
+.logout-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.logout {
+    background-color: rgb(255, 85, 85); /* Red color */
+}
 .posts {
     width: 40%;
     margin: 20px auto auto auto;

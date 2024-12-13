@@ -19,8 +19,30 @@ export default {
         }
     },
     methods: {
-        submitForm() {
-            console.log("Form submitted with: ", {email: this.email, password: this.password});
+        SignUp() {
+            console.log('SignUp method called');
+            var data = {
+              email:this.email,
+              password: this.password
+            };
+            console.log(data);
+            fetch("http://localhost:3000/auth/signup", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+                credentials: 'include',
+                body: JSON.stringify(data),
+            }).then((response) =>  response.json())
+              .then((data) => {
+                console.log(data);
+                console.log("signup successful");
+                this.$router.push("/posts");
+              })
+              .catch((e) => {
+                console.log(e);
+                console.log("error");
+              });
         },
         validatePassword(password) {
             this.passwordErrors = [];
@@ -56,7 +78,7 @@ export default {
   <div class="page-container">
     <form
       class="signup-form"
-      @submit.prevent="submitForm"
+    
     >
       <div class="form-row">
         <label for="email">Email:</label>
@@ -91,7 +113,7 @@ export default {
         </ul>
       </div>
 
-      <button type="submit">
+      <button @click.prevent="SignUp">
         Sign Up
       </button>
     </form>
