@@ -43,6 +43,9 @@ export default {
       this.loginError = e.message; 
     });
     },
+    goToSignup() {
+      this.$router.push('/signup');
+    },
   },
 };
 </script>
@@ -74,12 +77,22 @@ export default {
         <p>{{ loginError }}</p>
       </div>
 
-      <button @click.prevent="Login">Login</button>
+      <div class="button-container">
+        <button @click.prevent="Login">Login</button>
+        <div> Or </div>
+        <button @click.prevent="goToSignup" class="signup-button">Sign Up</button>
+      </div>
     </form>
   </div>
 </template>
 
 <style scoped>
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .login-form {
   max-width: 400px;
   margin: 50px auto;
@@ -123,7 +136,10 @@ button {
   border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
+  margin: 5px;
 }
+
+
 
 button:hover {
   background-color: darkblue;

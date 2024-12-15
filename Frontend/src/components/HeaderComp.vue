@@ -11,13 +11,13 @@ export default {
         to="/posts"
         class="buttons"
       >
-        Posts
+        Home
       </router-link>
       <router-link
-        to="/signup"
+        to="/contactus"
         class="buttons"
       >
-        Signup
+        Contact Us
       </router-link>
     </nav>
   </header>

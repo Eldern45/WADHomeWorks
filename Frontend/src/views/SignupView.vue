@@ -37,7 +37,7 @@ export default {
               .then((data) => {
                 console.log(data);
                 console.log("signup successful");
-                this.$router.push("/posts");
+                this.$router.push('/posts');
               })
               .catch((e) => {
                 console.log(e);
