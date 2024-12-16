@@ -101,7 +101,7 @@ app.get('/api/posts', async(req, res) => {
     try {
         console.log("get posts request has arrived");
         const posts = await pool.query(
-            "SELECT * FROM posttable"
+            "SELECT id, body, posttime::date || 'T' || posttime::time || 'Z' as posttime, username FROM posttable"
         );
         res.json(posts.rows);
     } catch (err) {
